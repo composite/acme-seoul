@@ -1,0 +1,22 @@
+---
+import "leaflet/dist/leaflet.css";
+import Layout from "../layouts/Layout.astro";
+import NorajoMap from "../components/Map";
+import NorajoDetail from "../components/Details";
+import HaengjungList from "../components/HaengjungList.vue";
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="relative h-full">
+		<h1 class="absolute z-[9999] right-0 p-2 text-xl bg-white/75">Acme NORAJO</h1>
+		<div class="absolute inset-0">
+			<NorajoMap client:only="react" />
+		</div>
+		<div class="absolute bottom-0 left-0 right-0 z-[9999] overflow-hidden">
+			<HaengjungList client:only="vue" />
+		</div>
+	</main>
+	<NorajoDetail client:only="react" />
+</Layout>
+
+<style></style>
